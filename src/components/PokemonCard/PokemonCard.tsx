@@ -2,6 +2,7 @@ import React, { useMemo } from "react";
 import { useNavigate } from "react-router";
 import { useGetPokemon } from "../../hooks/useGetPokemon";
 import { PokemonListItem } from "../../interfaces/PokemonListItem";
+import { useSearchStore } from "../../store/useSearchStore";
 import { capitalizeFirstLetter } from "../../utils/capitalizeFirstLetter";
 import { getMainPokemonType } from "../../utils/getMainPokemonType";
 import { FavoriteButtton } from "../shared/Button/FavoriteButton";
@@ -17,6 +18,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({
   pokemon,
   pokemonId,
 }) => {
+  const closeModal = useSearchStore((state) => state.closeModal);
   const { pokemonData } = useGetPokemon(pokemon?.name, pokemonId);
   const mainType = useMemo(
     () => pokemonData && getMainPokemonType(pokemonData),
@@ -27,6 +29,7 @@ export const PokemonCard: React.FC<PokemonCardProps> = ({
 
   const onClick = () => {
     navigate(`/pokemon/${pokemonData?.name}`);
+    closeModal();
   }
 
   return (
