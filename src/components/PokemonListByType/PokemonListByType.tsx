@@ -13,5 +13,5 @@ export const PokemonByTypeList = () => {
         <Grid>
             {pokemonList?.map((pokemon) => <PokemonCard key={pokemon?.pokemon.name} pokemon={pokemon?.pokemon} />)}
         </Grid>
-    )
-}
+    );
+};
