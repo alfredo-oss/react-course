@@ -5,7 +5,7 @@ const SearchButton = () => {
     const openModal = useSearchStore((state) => state.openModal);
 
     return (
-        <button onClick={openModal}>Search</button>
+        <button data-testid='search-button'onClick={openModal}>Search</button>
     )
 }
 

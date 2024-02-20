@@ -26,7 +26,7 @@ export const FavoriteButtton: React.FC<FavoriteButttonProps> = ({
   };
 
   return (
-    <button className="bg-white p-1 rounded-full absolute top-2 left-2" onClick={onClick}>
+    <button className="bg-white p-1 rounded-full absolute top-2 left-2" onClick={onClick} data-testid="favorite-button">
       {isFavorite ? <FaHeart fill="#EF4444" /> : <FaRegHeart fill="#EF4444" />}
     </button>
   );
