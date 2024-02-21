@@ -35,8 +35,9 @@ const SearchModal: React.FC = () => {
                 value={filter}
                 onChange={handleInputChange}
                 className="border border-green-500 p-2"
+                data-testid="search-input"
                 />
-                <button onClick={onClickSearch}>Search</button>
+                <button onClick={onClickSearch} data-testid="search-submit-button">Search</button>
             {pokemonData?.id && <PokemonCard pokemonId={pokemonData.id}/>}
         </Modal>
     );
